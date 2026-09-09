@@ -95,3 +95,88 @@ function renderHeroes() {
 if (document.getElementById("cards-container")) {
     renderHeroes();
 }
+
+const botonAgregarHeroe = document.getElementById("botonAgregarHeroe");
+
+const nuevosHeroes = [
+    {
+        name: "Mujer Maravilla",
+        realName: "Diana Prince",
+        avatar: "⚔️",
+        powers: [
+            "Fuerza sobrehumana",
+            "Vuelo",
+            "Habilidad con espada"
+        ],
+        description: "Heroína amazona que protege al mundo."
+    },
+    {
+        name: "Thor",
+        realName: "Thor Odinson",
+        avatar: "⚡",
+        powers: [
+            "Control del trueno",
+            "Fuerza sobrehumana",
+            "Mjolnir"
+        ],
+        description: "Dios del trueno y poderoso guerrero de Asgard."
+    },
+    {
+        name: "Flash",
+        realName: "Barry Allen",
+        avatar: "⚡",
+        powers: [
+            "Supervelocidad",
+            "Reflejos sobrehumanos",
+            "Viajes en el tiempo"
+        ],
+        description: "Héroe capaz de moverse a velocidades increíbles y proteger Central City."
+    },
+    {
+        name: "Wolverine",
+        realName: "Logan",
+        avatar: "🐺",
+        powers: [
+            "Regeneración",
+            "Garras de adamantium",
+            "Sentidos mejorados"
+        ],
+        description: "Mutante con habilidades regenerativas y poderosas garras de adamantium."
+    },
+    {
+        name: "Pantera Negra",
+        realName: "T'Challa",
+        avatar: "🐈‍⬛",
+        powers: [
+            "Fuerza mejorada",
+            "Agilidad",
+            "Traje de vibranium"
+        ],
+        description: "Rey de Wakanda y héroe que protege su nación con tecnología avanzada."
+    }
+];
+
+let indiceHeroe = 0;
+
+if (botonAgregarHeroe) {
+    botonAgregarHeroe.addEventListener("click", () => {
+
+        if (indiceHeroe < nuevosHeroes.length) {
+
+            const nuevoHeroe = nuevosHeroes[indiceHeroe];
+
+            const container = document.getElementById("cards-container");
+
+            const nuevaCard = createCard(nuevoHeroe);
+
+            container.appendChild(nuevaCard);
+
+            indiceHeroe++;
+
+            if (indiceHeroe === nuevosHeroes.length) {
+                botonAgregarHeroe.disabled = true;
+                botonAgregarHeroe.textContent = "No hay más héroes";
+            }
+        }
+    });
+}
