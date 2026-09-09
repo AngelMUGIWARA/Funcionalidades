@@ -1,9 +1,11 @@
 const boton = document.getElementById("boton-loco");
 
-boton.addEventListener("click", () => {
-  const color = `hsl(${Math.random() * 360}, 80%, 55%)`;
-  boton.style.backgroundColor = color;
-});
+if (boton) {
+  boton.addEventListener("click", () => {
+    const color = `hsl(${Math.random() * 360}, 80%, 55%)`;
+    boton.style.backgroundColor = color;
+  });
+}
 
 const heroes = [
     {
@@ -88,4 +90,8 @@ function renderHeroes() {
     heroes.forEach(hero => {
         container.appendChild(createCard(hero));
     });
+}
+
+if (document.getElementById("cards-container")) {
+    renderHeroes();
 }
